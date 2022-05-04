@@ -14,6 +14,7 @@ class _MMcalculatorState extends State<MMcalculator> {
   String num2 = "";
   String operator = "";
   String result = "";
+  String equals = "";
   bool isonnum1 = true;
 
   void operation(String title) {
@@ -23,7 +24,9 @@ class _MMcalculatorState extends State<MMcalculator> {
       operator = "";
       result = "";
       isonnum1 = true;
+      equals = "";
     } else if (title == "=") {
+      equals = "=";
       if (num1.isEmpty) {
         num1 = "0";
       }
@@ -54,9 +57,15 @@ class _MMcalculatorState extends State<MMcalculator> {
       isonnum1 = false;
     } else {
       if (isonnum1) {
-        num1 += title;
-      } else {
-        num2 += title;
+        if(num1.length < 9) {
+          num1 += title;
+        }
+      }
+
+      else {
+        if (num2.length < 9) {
+          num2 += title;
+        }
       }
     }
     setState(() {});
@@ -71,9 +80,17 @@ class _MMcalculatorState extends State<MMcalculator> {
       child: Container(
         width: MediaQuery.of(context).size.width / 4 - 10,
         height: MediaQuery.of(context).size.height / 8 - 10,
-        decoration: const BoxDecoration(
-          color: Colors.amber,
-          borderRadius: BorderRadius.all(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 2,
+              blurRadius: 2,
+              offset: const Offset(0, 3),
+            ),
+          ],
+          color: const Color(0xff123456),
+          borderRadius: const BorderRadius.all(
             Radius.circular(10.0),
           ),
         ),
@@ -81,7 +98,7 @@ class _MMcalculatorState extends State<MMcalculator> {
         child: Center(
           child: Text(
             title,
-            style: const TextStyle(fontSize: 25),
+            style: const TextStyle(fontSize: 25, color: Colors.white),
           ),
         ),
       ),
@@ -104,7 +121,15 @@ class _MMcalculatorState extends State<MMcalculator> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('MMCalculator'),
+        title: Center(
+          child: Text('MMCalculator', style: TextStyle(shadows: [
+            Shadow(
+              color: Colors.black.withOpacity(0.3),
+              offset: const Offset(1, 2),
+              blurRadius: 15
+            ),
+          ]),),
+        ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(20),
@@ -131,9 +156,9 @@ class _MMcalculatorState extends State<MMcalculator> {
                     num2,
                     style: const TextStyle(fontSize: 55.0),
                   ),
-                  const Text(
-                    "=",
-                    style: TextStyle(fontSize: 55.0),
+                  Text(
+                    equals,
+                    style: const TextStyle(fontSize: 55.0),
                   ),
                   Text(
                     result,
