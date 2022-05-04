@@ -1,4 +1,4 @@
 # MM_Calculator
 
-A new Flutter project.
+A simple calculator app I made with Flutter and using Dart. 
 
