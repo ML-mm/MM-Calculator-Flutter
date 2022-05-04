@@ -102,10 +102,13 @@ class _MMcalculatorState extends State<MMcalculator> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          title: const Text('MMCalculator'),
-          shape: const RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(20)))),
+        title: const Text('MMCalculator'),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
+          ),
+        ),
+      ),
       body: Column(
         children: [
           Container(
@@ -113,30 +116,28 @@ class _MMcalculatorState extends State<MMcalculator> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 2 - 80,
               child: Center(
-                child: Wrap(
-
-                    children: [
-                      Text(
-                        num1,
-                        style: const TextStyle(fontSize: 55.0),
-                      ),
-                      Text(
-                        operator,
-                        style: const TextStyle(fontSize: 55.0),
-                      ),
-                      Text(
-                        num2,
-                        style: const TextStyle(fontSize: 55.0),
-                      ),
-                      const Text(
-                        "=",
-                        style: TextStyle(fontSize: 55.0),
-                      ),
-                      Text(
-                        result,
-                        style: const TextStyle(fontSize: 55.0),
-                      )
-                    ]),
+                child: Wrap(children: [
+                  Text(
+                    num1,
+                    style: const TextStyle(fontSize: 55.0),
+                  ),
+                  Text(
+                    operator,
+                    style: const TextStyle(fontSize: 55.0),
+                  ),
+                  Text(
+                    num2,
+                    style: const TextStyle(fontSize: 55.0),
+                  ),
+                  const Text(
+                    "=",
+                    style: TextStyle(fontSize: 55.0),
+                  ),
+                  Text(
+                    result,
+                    style: const TextStyle(fontSize: 55.0),
+                  )
+                ]),
               )),
           Container(
               decoration: const BoxDecoration(
