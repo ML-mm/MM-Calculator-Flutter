@@ -1,5 +1,4 @@
-# mm_test
+# MM_Calculator
 
 A new Flutter project.
 
-## Getting Started
