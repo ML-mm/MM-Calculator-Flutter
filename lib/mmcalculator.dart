@@ -25,7 +25,8 @@ class _MMcalculatorState extends State<MMcalculator> {
       result = "";
       isonnum1 = true;
       equals = "";
-    } else if (title == "=") {
+    }
+    else if (title == "=") {
       equals = "=";
       if (num1.isEmpty) {
         num1 = "0";
